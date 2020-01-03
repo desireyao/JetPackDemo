@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.yaoh.MainActivity">
+    tools:context=".room.RoomActivity"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
     <Button
-        android:id="@+id/btn_test_viewModel"
+        android:id="@+id/bt_insert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ViewModel示例" />
+        android:text="插入" />
 
     <Button
-        android:id="@+id/btn_test_room"
+        android:id="@+id/bt_delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ROOM示例" />
+        android:text="删除" />
 
 </LinearLayout>
