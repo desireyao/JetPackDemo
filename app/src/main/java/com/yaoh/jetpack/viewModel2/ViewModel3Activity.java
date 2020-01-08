@@ -4,13 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
 import com.yaoh.jetpack.R;
 import com.yaoh.jetpack.log.LogTool;
 
+
+/**
+ * @author yaoh
+ * @date Create in 2020-01-08 14:03
+ * @description  由于LiveDataViewModel 是和当前的activity有关
+ *                解决办法-> livaDataBus 或 static livedata
+ */
 public class ViewModel3Activity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "ViewModel3Activity";
@@ -20,6 +29,8 @@ public class ViewModel3Activity extends AppCompatActivity implements View.OnClic
     private Button btn_subscribe;
     private Button btn_unsubscribe;
     private Button btn_sendMessage;
+
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +47,8 @@ public class ViewModel3Activity extends AppCompatActivity implements View.OnClic
         btn_sendMessage.setOnClickListener(this);
 
         mViewModel = ViewModelProviders.of(this).get(LiveDataViewModel.class);
+        LogTool.LogE_DEBUG(TAG, " mViewModel111---> " + mViewModel);
+
     }
 
     @Override
@@ -66,10 +79,17 @@ public class ViewModel3Activity extends AppCompatActivity implements View.OnClic
     }
 
     private void sendMessage() {
-        MessageInfo messageInfo = new MessageInfo();
-        messageInfo.setMessageId(1);
-        messageInfo.setContent("this is a message");
-        mViewModel.getMessageData().setValue(messageInfo);
+        startActivity(new Intent(ViewModel3Activity.this, ViewModel4Activity.class));
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                MessageInfo messageInfo = new MessageInfo();
+                messageInfo.setMessageId(1);
+                messageInfo.setContent("this is a message");
+                mViewModel.getMessageData().setValue(messageInfo);
+
+            }
+        }, 2000);
     }
 
 }

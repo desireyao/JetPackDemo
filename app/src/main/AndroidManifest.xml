@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-
+        <activity android:name=".viewModel2.ViewModel4Activity"></activity>
         <activity android:name="com.yaoh.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +20,7 @@
         </activity>
         <activity android:name=".viewModel.ViewModelActivity" />
         <activity android:name=".viewModel.ViewModel2Activity" />
-        <activity android:name=".viewModel2.ViewModel3Activity"/>
-
+        <activity android:name=".viewModel2.ViewModel3Activity" />
         <activity android:name=".room.RoomActivity" />
     </application>
 

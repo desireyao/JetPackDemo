@@ -13,7 +13,7 @@ public class LiveDataViewModel extends ViewModel {
 
     private static final int ONE_SECOND = 1000;
 
-    private MutableLiveData<MessageInfo> mMessageData = new MutableLiveData<>();
+    private static MutableLiveData<MessageInfo> mMessageData = new MutableLiveData<>();
 
     public MutableLiveData<MessageInfo> getMessageData() {
         return mMessageData;
