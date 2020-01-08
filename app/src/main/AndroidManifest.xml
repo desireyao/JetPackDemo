@@ -14,15 +14,15 @@
         <activity android:name="com.yaoh.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".view_model.ViewModelActivity" />
-        <activity android:name=".view_model.ViewModel2Activity" />
+        <activity android:name=".viewModel.ViewModelActivity" />
+        <activity android:name=".viewModel.ViewModel2Activity" />
+        <activity android:name=".viewModel2.ViewModel3Activity"/>
 
         <activity android:name=".room.RoomActivity" />
-
     </application>
 
 </manifest>

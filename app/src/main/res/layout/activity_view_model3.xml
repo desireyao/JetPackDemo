@@ -5,29 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    tools:context=".viewModel.ViewModelActivity">
+    tools:context=".viewModel2.ViewModel3Activity">
 
     <Button
         android:id="@+id/btn_subscribe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="订阅" />
 
     <Button
-        android:id="@+id/btn_unSubscribe"
+        android:id="@+id/btn_unsubscribe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="取消订阅" />
 
     <Button
-        android:id="@+id/btn_send"
+        android:id="@+id/btn_sendMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="发送消息1" />
+        android:text="发送消息" />
 
 </LinearLayout>

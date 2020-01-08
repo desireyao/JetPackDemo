@@ -1,4 +1,4 @@
-package com.yaoh.jetpack.view_model;
+package com.yaoh.jetpack.viewModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

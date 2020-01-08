@@ -1,8 +1,7 @@
-package com.yaoh.jetpack.view_model;
+package com.yaoh.jetpack.viewModel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,8 +14,6 @@ public class ViewModel2Activity extends AppCompatActivity implements View.OnClic
 
     private static final String TAG = "ViewModel2Activity";
 
-    private LiveDataTimeViewModel mLiveDataTimeViewModel;
-
     private Button btn_send;
 
     @Override
@@ -26,29 +23,24 @@ public class ViewModel2Activity extends AppCompatActivity implements View.OnClic
 
         btn_send = findViewById(R.id.btn_send);
         btn_send.setOnClickListener(this);
-
-        mLiveDataTimeViewModel = ViewModelProviders.of(this).get(LiveDataTimeViewModel.class);
-        Log.e(TAG, "mLiveDataTimeViewModel222---> " + mLiveDataTimeViewModel
-                + " timeInfo: " + mLiveDataTimeViewModel.getTimeInfo().getValue());
-
         subscribe();
     }
 
     private void subscribe() {
-//        mLiveDataTimeViewModel.getTimeInfo().observe(this, new Observer<TimeInfo>() {
-//            @Override
-//            public void onChanged(TimeInfo timeInfo) {
-//                Log.e("ViewModel2Activity", "onChanged---> timeInfo: " + timeInfo);
-//            }
-//        });
-
         LiveDataBus.get().with("message", String.class)
                 .observe(this, new Observer<String>() {
                     @Override
                     public void onChanged(String s) {
-                        Log.e(TAG, "onChanged222---> " + s);
+                        Log.e(TAG, "onReveive onChanged222---> " + s);
                     }
                 });
+    }
+
+    /**
+     * 取消订阅
+     */
+    private void unSubscribe() {
+        LiveDataBus.get().with("message").removeObservers(this);
     }
 
     @Override
@@ -63,7 +55,8 @@ public class ViewModel2Activity extends AppCompatActivity implements View.OnClic
 //        TimeInfo timeInfo = new TimeInfo();
 //        timeInfo.setCount(100);
 //        mLiveDataTimeViewModel.setTimeInfo(timeInfo);
-        LiveDataBus.get().with("message").setValue("hello------------->222");
+        LiveDataBus.get().with("message")
+                .setValue("hello------------->222");
     }
 
 }
